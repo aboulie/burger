@@ -24,7 +24,7 @@ Users can input names of burgers they would like to eat, add their choice to the
 * Heroku - the cloud platform used to deploy this application
 
 ###
-View the app here:
+View the app on Heroku here: https://blooming-reaches-24425.herokuapp.com/burgers
 
 ###
-This app was created by Dareen Mohamad.
+This app was created by Dareen Mohamad (https://github.com/aboulie)
