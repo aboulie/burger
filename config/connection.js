@@ -8,10 +8,10 @@ else {
 	var keys = require('./keys.js');
 
 	connection = mysql.createConnection({
-		host     : keys.db.host,
-		user     : keys.db.user,
-		password : keys.db.password,
-		database : keys.db.database
+		host     : 'localhost',
+		user     : 'root',
+		password : 'root',
+		database : 'burgers_db'
 	});
 }
 
