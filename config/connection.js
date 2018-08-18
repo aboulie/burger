@@ -1,32 +1,28 @@
-var mysql = require("mysql");
+var mysql = require('../node_modules/mysql');
 
-try {
-  var pass = require("./keys.js");
-}
-catch (error) {
-  console.log("An error occured");
-  console.log(error);
-}
+/**
+ * If JAWSDB_URL is available (Heroku), use it.
+ * Otherwise use local mysql configuration.
+ */
+if (process.env.JAWSDB_URL)
+	connection = mysql.createConnection(process.env.JAWSDB_URL);
+else {
+	var keys = require('./keys');
 
-var connection;
-
-if (process.env.JAWSDB_URL) {
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
-  connection = mysql.createConnection({
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_SECRET,
-    database: process.env.MYSQL_DB
-  });
+	connection = mysql.createConnection({
+		host     : keys.db.host,
+		user     : keys.db.user,
+		password : keys.db.password,
+		database : keys.db.database
+	});
 }
 
-connection.connect(function (err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-  console.log("connected as id " + connection.threadId);
+connection.connect(function(err) {
+    if (err) {
+        console.error('Connection error: ' + err.stack);
+        return;
+    }
+    console.log('Connection threadId: ' + connection.threadId);
 });
 
 module.exports = connection;
