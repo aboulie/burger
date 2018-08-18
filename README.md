@@ -25,6 +25,7 @@ Users can input names of burgers they would like to eat, add their choice to the
 
 ###
 View the app on Heroku here: https://shrouded-eyrie-55950.herokuapp.com/
+
 View the code on GitHub: https://github.com/aboulie/burger
 
 ###
